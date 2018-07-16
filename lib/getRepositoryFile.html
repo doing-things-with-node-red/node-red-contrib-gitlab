@@ -1,0 +1,54 @@
+<script type="text/x-red" data-template-name="gitlab-get-repositoryfile">
+    <div class="form-row">
+      <label for="node-input-gitlabconfig"><i class="fa fa-globe"></i> API Key</label>
+      <input type="text" id="node-input-gitlabconfig">
+    </div>
+    <div class="form-row">
+      <label for="node-input-ref"><i class="fa fa-tag"></i> Ref</label>
+      <input type="text" id="node-input-ref" placeholder="The name of branch, tag or commit">
+      <input type="hidden" id="node-config-input-refFieldType">
+    </div>
+    <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+  </script>
+  <script type="text/x-red" data-help-name="gitlab-get-repositoryfile">
+    <p>Get file from repository. Allows you to receive information about file in repository like name, size, content. Note that file content is Base64 encoded.</p>
+    <p>
+        Set the following in the node setting or in the input payload.:
+      <ul>
+        <li><code>msg.payload.ref</code> :
+          <Strong>(required String)</Strong> The name of branch, tag or commit</li>
+        <li><code>msg.payload.file_path</code> :
+          <Strong>(required String)</Strong> Full path to file. </li>
+      </ul>
+    </p>
+  </script>
+  <script type="text/javascript">
+    RED.nodes.registerType('gitlab-get-repositoryfile', {
+      category: 'GitLab',
+      defaults: {
+        name: {
+          value: ""
+        },
+        ref: {
+          value: ""
+        },
+        gitlabconfig: {
+          type: "gitlab-config",
+          required: true
+        }
+      },
+      color: "#f89406",
+      inputs: 1,
+      outputs: 1,
+      icon: "gitlab_logo.svg",
+      label: function() {
+        return this.name || "get-repositoryfile";
+      },
+      labelStyle: function() {
+        return this.name ? "node_label_italic" : "";
+      }
+    });
+  </script>

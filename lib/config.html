@@ -1,0 +1,102 @@
+<script type="text/x-red" data-template-name="gitlab-config">
+  <div class="form-row">
+    <label for="node-config-input-url"><i class="fa fa-globe"></i> API URL</label>
+    <input type="text" id="node-config-input-url" placeholder="GitLab API URL">
+    <input type="hidden" id="node-config-input-urlFieldType">
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-key"><i class="fa fa-lock"></i> Token</label>
+    <input type="password" id="node-config-input-key" placeholder="Personal Access Token">
+    <input type="hidden" id="node-config-input-keyFieldType">
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-projectId"><i class="fa fa-bookmark"></i> Project ID</label>
+    <input type="text" id="node-config-input-projectId" placeholder="ProjectID">
+    <input type="hidden" id="node-config-input-projectIdFieldType">
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-config-input-name" placeholder="Name">
+  </div>
+</script>
+<script type="text/x-red" data-help-name="gitlab-config">
+  <p>GitLab APIs Config</p>
+  <p>
+    Set the following in the node setting.:
+    <ul>
+      <li><code>API URL</code> :
+        <Strong>(required String)</Strong> GitLab API URL. (e.g. https://gitlab.com/api/v3)</li>
+      <li><code>Token</code> :
+        <Strong>(required String)</Strong> Personal Access Token</li>
+      <li><code>Project ID</code> : (Number) The ID of a project</li>
+    </ul>
+  </p>
+</script>
+<script type="text/javascript">
+  RED.nodes.registerType('gitlab-config', {
+    category: "config",
+    color: "#f89406",
+    defaults: {
+      url: {
+        value: "",
+        required: true
+      },
+      projectId: {
+        value: ""
+      },
+      name: {
+        value: ""
+      },
+      urlFieldType: {
+        value: "str"
+      },
+      keyFieldType: {
+        value: "str"
+      },
+      projectIdFieldType: {
+        value: "str"
+      }
+    },
+    credentials: {
+      key: {
+        type: "password",
+        required: true
+      }
+    },
+    label: function() {
+      return this.name;
+    },
+    oneditprepare: function () {
+      $("#node-config-input-url").typedInput({
+        default: 'str',
+        types: ['str', 'flow', 'msg', 'global'],
+        typeField: $("#node-config-input-urlFieldType")
+      });
+      $("#node-config-input-projectId").typedInput({
+        default: 'str',
+        types: ['str', 'flow', 'msg', 'global'],
+        typeField: $("#node-config-input-projectIdFieldType")
+      });
+      $("#node-config-input-key").typedInput({
+        default: 'str',
+        types: ['str', 'flow', 'msg', 'global'],
+        typeField: $("#node-config-input-keyFieldType")
+      }).on('change', function (type, value) {
+        const e = $(this);
+        const kind = value === true ? e.typedInput('type') : value;
+        switch (kind) {
+          case 'msg':
+          case 'global':
+          case 'flow': {
+            e.attr('type', 'text');
+            break;
+          }
+          case 'str': {
+            e.attr('type', 'password');
+            break;
+          }
+        }
+      });
+    }
+  });
+</script>
