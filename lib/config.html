@@ -1,4 +1,4 @@
-<script type="text/x-red" data-template-name="gitlab-config">
+<script type="text/x-red" data-template-name="gitlab2-config">
   <div class="form-row">
     <label for="node-config-input-url"><i class="fa fa-globe"></i> API URL</label>
     <input type="text" id="node-config-input-url" placeholder="GitLab API URL">
@@ -19,7 +19,7 @@
     <input type="text" id="node-config-input-name" placeholder="Name">
   </div>
 </script>
-<script type="text/x-red" data-help-name="gitlab-config">
+<script type="text/x-red" data-help-name="gitlab2-config">
   <p>GitLab APIs Config</p>
   <p>
     Set the following in the node setting.:
@@ -33,7 +33,7 @@
   </p>
 </script>
 <script type="text/javascript">
-  RED.nodes.registerType('gitlab-config', {
+  RED.nodes.registerType('gitlab2-config', {
     category: "config",
     color: "#f89406",
     defaults: {

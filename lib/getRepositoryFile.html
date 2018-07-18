@@ -1,4 +1,4 @@
-<script type="text/x-red" data-template-name="gitlab-get-repositoryfile">
+<script type="text/x-red" data-template-name="gitlab2-get-repositoryfile">
     <div class="form-row">
       <label for="node-input-gitlabconfig"><i class="fa fa-globe"></i> API Key</label>
       <input type="text" id="node-input-gitlabconfig">
@@ -13,7 +13,7 @@
       <input type="text" id="node-input-name" placeholder="Name">
     </div>
   </script>
-  <script type="text/x-red" data-help-name="gitlab-get-repositoryfile">
+  <script type="text/x-red" data-help-name="gitlab2-get-repositoryfile">
     <p>Get file from repository. Allows you to receive information about file in repository like name, size, content. Note that file content is Base64 encoded.</p>
     <p>
         Set the following in the node setting or in the input payload.:
@@ -26,7 +26,7 @@
     </p>
   </script>
   <script type="text/javascript">
-    RED.nodes.registerType('gitlab-get-repositoryfile', {
+    RED.nodes.registerType('gitlab2-get-repositoryfile', {
       category: 'GitLab',
       defaults: {
         name: {
@@ -36,7 +36,7 @@
           value: ""
         },
         gitlabconfig: {
-          type: "gitlab-config",
+          type: "gitlab2-config",
           required: true
         }
       },
