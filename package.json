@@ -1,17 +1,17 @@
 {
-  "name": "node-red-contrib-gitlab2",
-  "version": "1.0.0-alpha-16",
+  "name": "@doing-things-with-node-red/node-red-contrib-gitlab",
+  "version": "1.0.0",
   "description": "Node-RED node using GitLab APIs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ymedlop/node-red-contrib-gitlab2.git"
+    "url": "git+https://github.com/doing-things-with-node-red/node-red-contrib-gitlab.git"
   },
   "author": "Yeray Medina López",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ymedlop/node-red-contrib-gitlab2/issues"
+    "url": "https://github.com/doing-things-with-node-red/node-red-contrib-gitlab/issues"
   },
-  "homepage": "https://github.com/ymedlop/node-red-contrib-gitlab2#readme",
+  "homepage": "https://github.com/doing-things-with-node-red/node-red-contrib-gitlab#readme",
   "keywords": [
     "node-red",
     "nodered",
