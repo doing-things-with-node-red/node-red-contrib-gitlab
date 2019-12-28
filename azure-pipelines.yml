@@ -16,7 +16,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm Install
+    npm i
   displayName: 'npm install'
 
 - task: CopyFiles@2
